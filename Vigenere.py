@@ -33,7 +33,7 @@ for i in range (sisa):
     listKey.append(listKey[i])
 
 for i in range (len(list)):
-    temp = chr(((ord(list[i])-64 + ord(listKey[i])-64)%26) +64)
+    temp = chr(((ord(list[i])-65 + ord(listKey[i])-65)%26) +65)
     kataAkhir += temp
 
 print(kataAkhir)
