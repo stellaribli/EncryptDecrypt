@@ -1,56 +1,10 @@
-import random
-
-NaskahProklamasi = "BAHWA SESUNGGUHNYA KEMERDEKAAN ITU IALAH HAK SEGALA BANGSA DAN OLEH SEBAB ITU MAKA PENJAJAHAN DI ATAS DUNIA HARUS DIHAPUSKAN KARENA TIDAK SESUAI DENGAN PERIKEMANUSIAAN DAN PERIKEADILAN DAN PERJUANGAN PERGERAKAN KEMERDEKAAN INDONESIA TELAH SAMPAILAH KEPADA SAAT YANG BERBAHAGIA DENGAN SELAMAT SENTAUSA MENGANTARKAN RAKYAT INDONESIA KE DEPAN PINTU GERBANG KEMERDEKAAN NEGARA INDONESIA YANG MERDEKA BERSATU BERDAULAT ADIL DAN MAKMUR ATAS BERKAT RAKHMAT ALLAH YANG MAHA KUASA DAN DENGAN DIDORONGKAN OLEH KEINGINAN LUHUR SUPAYA BERKEHIDUPAN KEBANGSAAN YANG BEBAS MAKA RAKYAT INDONESIA MENYATAKAN DENGAN INI KEMERDEKAANNYA KEMUDIAN DARIPADA ITU UNTUK MEMBENTUK SUATU PEMERINTAH NEGARA INDONESIA YANG MELINDUNGI SEGENAP BANGSA INDONESIA DAN SELURUH TUMPAH DARAH INDONESIA DAN UNTUK MEMAJUKAN KESEJAHTERAAN UMUM MENCERDASKAN KEHIDUPAN BANGSA DAN IKUT MELAKSANAKAN KETERTIBAN DUNIA YANG BERDASARKAN KEMERDEKAAN PERDAMAIAN ABADI DAN KEADILAN SOSIAL MAKA DISUSUNLAH KEMERDEKAAN KEBANGSAAN INDONESIA ITU DALAM SUATU UNDANGUNDANG DASAR NEGARA INDONESIA YANG TERBENTUK DALAM SUATU SUSUNAN NEGARA REPUBLIK INDONESIA YANG BERKEDAULATAN RAKYAT DENGAN BERDASAR KEPADA KETUHANAN YANG MAHA ESA KEMANUSIAAN YANG ADIL DAN BERADAB PERSATUAN INDONESIA DAN KERAKYATAN YANG DIPIMPIN OLEH HIKMAT KEBIJAKSANAAN DALAM PERMUSYAWARATANPERWAKILAN SERTA DENGAN MEWUJUDKAN SUATU KEADILAN SOSIAL BAGI SELURUH RAKYAT INDONESIA"
-NaskahProklamasi = NaskahProklamasi.replace(" ","")
-print(NaskahProklamasi)
-input = input("Masukan text: ")
-input = str(input)
-listTemp = []
-listKey = []
-list = []
-listFix = []
-i=0
-randomList = ['AB','BCD','CDEF','DEFGH','EFGHI']
-kataEnkripsi = ""
-kataDekripsi = ""
-
-key = random.choice(randomList)
-
-#AutoKey Generator
-if len(key)<len(input):
-    jumlahtambah = len(input)-len(key)
-    key = key + input[:jumlahtambah]
-
-if len(key)>len(input):
-    key = key[:len(input)]
-
-#ubah input jadi array
-for kata in input:
-    listTemp.append(kata)
-
-#ubah kunci jadi array
-for kunci in key:
-    listKey.append(kunci)
-
-count = len(listTemp)
-
-while i < count:
-    if (ord(listTemp[i]) >= 65 and ord(listTemp[i]) <= 90):
-        list.append(listTemp[i])
-    i += 1
-
-# ENKRIPSI
-
-for i in range (len(list)):
-    temp = chr(((ord(list[i])-65 + ord(listKey[i])-65)%26)+65)
-    listFix.append(temp)
-    kataEnkripsi += temp
-
-# DEKRIPSI
-
-for i in range (len(list)):
-    temp = chr(((ord(listFix[i])-65 - ord(listKey[i])-65)%26)+65)
-    kataDekripsi += temp
-
-print(kataEnkripsi)
-print(kataDekripsi)
+    for isiKosong in arrayAlphabet: 
+        i = 0
+        if isiKosong == 0:
+            arrayBujurSangkar[bujurX][bujurY] = 1
+            if bujurY==4:
+                bujurX+=1
+                bujurY=0
+            else:
+                bujurY+=1
+        i = i+1  
