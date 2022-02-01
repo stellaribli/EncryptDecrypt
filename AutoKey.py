@@ -36,11 +36,6 @@ while i < count:
         list.append(listTemp[i])
     i += 1
 
-sisa = len(list)-len(listKey)
-
-for i in range (sisa):
-    listKey.append(listKey[i])
-
 # ENKRIPSI
 
 for i in range (len(list)):
