@@ -23,9 +23,21 @@ for huruf in teksKey:
             bujurY=0
         else:
             bujurY+=1
-    # if (arrayAlphabet[ord(huruf)]-65) == 0:
-    #     arrayAlphabet[ord(huruf)-65] = 1
 i=0
+
+
+if not (bujurY==4 and bujurX==4):
+    for isiKosong in arrayAlphabet: 
+        if isiKosong == 0 and i!=9:
+            arrayBujurSangkar[bujurX][bujurY] = chr(i+65)
+            if bujurY==4:
+                bujurX+=1
+                bujurY=0
+            else:
+                bujurY+=1
+        i+=1
+
+print(arrayBujurSangkar)
 # if bujurX!=4 and bujurY !=4:
 #     for isiKosong in arrayAlphabet: 
 #         i = 0
