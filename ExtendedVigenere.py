@@ -1,12 +1,7 @@
 def bikinListKata (input):
     list = []
     for kata in input:
-        if ord(kata) >= 65 and ord(kata) <= 90:
-            list.append(kata)
-        else:
-            if ord(kata) >= 97 and ord(kata) <= 122:
-                temp = chr(ord(kata)-32)
-                list.append(temp)
+        list.append(kata)
     return list
 
 def lengkapiListKey (list,listKey):
@@ -19,7 +14,7 @@ def lengkapiListKey (list,listKey):
 def enkripsi (list,listKey):
     kataEnkripsi = ''
     for i in range (len(list)):
-        temp = chr(((ord(list[i])-65 + ord(listKey[i])-65)%26)+65)
+        temp = chr((ord(list[i]) + ord(listKey[i]))%256)
         kataEnkripsi += temp
     return kataEnkripsi
 
@@ -32,7 +27,7 @@ def listEnkripsi (kataEnkripsi):
 def dekripsi (listFix,listKey):
     kataDekripsi = ''
     for i in range (len(listFix)):
-        temp = chr(((ord(listFix[i])-65 - ord(listKey[i])-65)%26)+65)
+        temp = chr((ord(listFix[i])-ord(listKey[i]))%256)
         kataDekripsi += temp
     return kataDekripsi
 

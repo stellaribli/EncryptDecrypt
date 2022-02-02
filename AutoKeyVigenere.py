@@ -13,7 +13,7 @@ def lengkapiListKey (list,listKey):
     sisa = len(list) - len(listKey)
     if sisa > 0:
         for i in range (sisa):
-            listKey.append(listKey[i])
+            listKey.append(list[i])
     return listKey
 
 def enkripsi (list,listKey):
