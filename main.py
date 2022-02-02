@@ -489,6 +489,7 @@ class Extended(QDialog):
         self.fullButton.clicked.connect(self.gotoFull)
         self.autoButton.clicked.connect(self.gotoAuto)
         self.runningButton.clicked.connect(self.gotoRunning)
+        self.homeButton.clicked.connect(self.gotoHome)
     def gotoFull(self):
         global cipherType 
         cipherType = "full"
@@ -501,7 +502,8 @@ class Extended(QDialog):
         global cipherType 
         cipherType = "running"
         widget.setCurrentIndex(2)
-
+    def gotoHome(self):
+        widget.setCurrentIndex(0)
 class Text(QDialog):
     def __init__(self):
         super(Text, self).__init__()
@@ -509,6 +511,7 @@ class Text(QDialog):
         print(cipherType)
         self.encryptButton.clicked.connect(self.gotoEncrypt)
         self.decryptButton.clicked.connect(self.gotoDecrypt)
+        self.homeButton.clicked.connect(self.gotoHome)
     def gotoEncrypt(self): 
         teks = self.teks.text()
         kunci = self.kunci.text()
@@ -573,7 +576,8 @@ class Text(QDialog):
             print(kataDekripsi)
         if cipherType == 'enigma':
             print('Enigma')
-            
+    def gotoHome(self):
+        widget.setCurrentIndex(0)
 app = QApplication(sys.argv)
 widget = QtWidgets.QStackedWidget()
 widget.addWidget(Login())  # Index jadi 0   
