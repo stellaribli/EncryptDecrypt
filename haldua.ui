@@ -32,7 +32,7 @@
 font: 30pt &quot;Arial&quot;</string>
    </property>
    <property name="text">
-    <string>Enkripsi Teks Anda</string>
+    <string>Masukkan Teks Anda</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -42,7 +42,7 @@ font: 30pt &quot;Arial&quot;</string>
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>330</y>
+     <y>270</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -68,7 +68,7 @@ font: 30pt &quot;Arial&quot;</string>
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>120</y>
+     <y>190</y>
      <width>281</width>
      <height>61</height>
     </rect>
@@ -90,31 +90,11 @@ padding-left:15px;</string>
     <string>Teks</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>200</y>
-     <width>371</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: #2B3242;
-font: 30pt &quot;Arial&quot;</string>
-   </property>
-   <property name="text">
-    <string>Enkripsi File Teks Anda</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QPushButton" name="loginbutton_5">
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>270</y>
+     <y>330</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -133,7 +113,33 @@ font: 30pt &quot;Arial&quot;</string>
  }</string>
    </property>
    <property name="text">
-    <string>Upload File</string>
+    <string>Dekripsi</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="passlama_2">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>120</y>
+     <width>281</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;Mulish&quot;;color:#1D2D5E; 
+height: 47.76695251464844px;
+width: 376.5159912109375px;
+left: 538px;
+top: 229px;
+border-radius: 13.25760269165039px;
+border: 1.4px solid #2B3242;
+padding-left:15px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Kunci</string>
    </property>
   </widget>
  </widget>
