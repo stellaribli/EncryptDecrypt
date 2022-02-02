@@ -5,10 +5,17 @@ arrayBujurSangkar = [["" for i in range(5)] for j in range(5)]
 teksKey = input("Masukkan Key: ")
 teksKey = teksKey.replace(" ","")
 teksKey = teksKey.replace("J","")
-print(teksKey)
 keyBaru = ""
 bujurX = 0
 bujurY = 0
+
+#Def Cari Lokasi Alphabet
+def locateAlphabet(array,alphabet):
+    for lokasiAlphabetSatu in range(5):
+        for lokasiAlphabetDua in range(5):
+            if array[lokasiAlphabetSatu][lokasiAlphabetDua] == alphabet:
+                return lokasiAlphabetSatu,lokasiAlphabetDua
+
 #Create Bujur Sangkar
 for huruf in teksKey:
     index = ord(huruf)-65
@@ -34,11 +41,9 @@ if not (bujurY==4 and bujurX==4):
 
 teksPesan = input("Masukkan Pesan: ")
 teksPesan = teksPesan.replace("J","")
-
+teksPesan = teksPesan.replace(" ","")
 arrayTeks = []
-
 currentNumber = 0 
-
 ind = 0
 while ind<(len(teksPesan)-1):
     if teksPesan[ind] == teksPesan[ind+1]:
@@ -49,6 +54,38 @@ while ind<(len(teksPesan)-1):
         ind+=2
 if ind<len(teksPesan):
     arrayTeks.append([teksPesan[ind],'X'])
-    
-print(ind)
-print(arrayTeks)
+arrayTeksEnkripsi = []
+jumlahPasangan = len(arrayTeks)
+for i in range(jumlahPasangan):
+    inisialSatu = arrayTeks[i][0]
+    inisialDua = arrayTeks[i][1]
+    lokasiAlphabetSatu = locateAlphabet(arrayBujurSangkar,inisialSatu)
+    lokasiAlphabetDua = locateAlphabet(arrayBujurSangkar,inisialDua)
+    if lokasiAlphabetDua[0] == lokasiAlphabetSatu[0]:
+        if lokasiAlphabetSatu[1] != 4:
+            satu = (arrayBujurSangkar[lokasiAlphabetDua[0]][lokasiAlphabetSatu[1]+1])
+        if lokasiAlphabetDua[1] != 4:
+            dua = (arrayBujurSangkar[lokasiAlphabetDua[0]][lokasiAlphabetDua[1]+1])
+        if lokasiAlphabetSatu[1] == 4:
+            satu = (arrayBujurSangkar[lokasiAlphabetDua[0]][0])
+        if lokasiAlphabetDua[1] == 4:
+            dua = (arrayBujurSangkar[lokasiAlphabetDua[0]][0])
+        arrayTeksEnkripsi.append([satu,dua]) 
+    elif lokasiAlphabetDua[1] == lokasiAlphabetSatu[1]:
+        if lokasiAlphabetSatu[0] != 4:
+            satu = (arrayBujurSangkar[lokasiAlphabetSatu[0]+1][lokasiAlphabetSatu[1]])
+        if lokasiAlphabetDua[0] != 4:
+            dua = (arrayBujurSangkar[lokasiAlphabetDua[0]+1][lokasiAlphabetDua[1]])
+        if lokasiAlphabetSatu[0] == 4:
+            satu = (arrayBujurSangkar[0][lokasiAlphabetSatu[1]])
+        if lokasiAlphabetDua[0] == 4:
+            dua = (arrayBujurSangkar[0][lokasiAlphabetDua[1]])
+        arrayTeksEnkripsi.append([satu,dua])
+    else: 
+        satu = arrayBujurSangkar[lokasiAlphabetSatu[0]][lokasiAlphabetDua[1]]
+        dua = arrayBujurSangkar[lokasiAlphabetDua[0]][lokasiAlphabetSatu[1]]
+        arrayTeksEnkripsi.append([satu,dua])
+
+for i in range(len(arrayTeksEnkripsi)):
+    print(arrayTeksEnkripsi[i][0]+arrayTeksEnkripsi[i][1],end=" ")
+print()
