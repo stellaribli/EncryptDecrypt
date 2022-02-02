@@ -584,7 +584,7 @@ widget.addWidget(Login())  # Index jadi 0
 widget.addWidget(Extended())  # Index jadi 1
 widget.addWidget(Text())  # Index jadi 2
 widget.setCurrentIndex(0)
-widget.setFixedWidth(450)
+widget.setFixedWidth(470)
 widget.setFixedHeight(450)
 widget.show()
 app.exec_()
