@@ -6,6 +6,45 @@ from numpy import array
 
 cipherType = ""
 
+#Vigenere
+def bikinListKata (input):
+    list = []
+    for kata in input:
+        if ord(kata) >= 65 and ord(kata) <= 90:
+            list.append(kata)
+        else:
+            if ord(kata) >= 97 and ord(kata) <= 122:
+                temp = chr(ord(kata)-32)
+                list.append(temp)
+    return list
+
+def lengkapiListKey (list,listKey):
+    sisa = len(list) - len(listKey)
+    if sisa > 0:
+        for i in range (sisa):
+            listKey.append(listKey[i])
+    return listKey
+
+def enkripsi (list,listKey):
+    kataEnkripsi = ''
+    for i in range (len(list)):
+        temp = chr(((ord(list[i])-65 + ord(listKey[i])-65)%26)+65)
+        kataEnkripsi += temp
+    return kataEnkripsi
+
+def listEnkripsi (kataEnkripsi):
+    listFix = []
+    for kata in kataEnkripsi:
+        listFix.append(kata)
+    return listFix
+
+def dekripsi (listFix,listKey):
+    kataDekripsi = ''
+    for i in range (len(listFix)):
+        temp = chr(((ord(listFix[i])-65 - ord(listKey[i])-65)%26)+65)
+        kataDekripsi += temp
+    return kataDekripsi
+
 def vigenere(inputKey,inputKata):
     def bikinListKata (input):
         list = []
@@ -101,9 +140,6 @@ def extendedVigenere(inputKey,inputKata):
 
     return(print("Hasil Enkripsi: "+str(kataEnkripsi))+('/n')+("Hasil Dekripsi: "+str(kataDekripsi)))
 
-    
-
-
 def autoKeyVigenere(inputKey,inputKata):
     def bikinListKata (input):
         list = []
@@ -155,6 +191,41 @@ def autoKeyVigenere(inputKey,inputKata):
 
     return(print("Hasil Enkripsi: "+str(kataEnkripsi))+('/n')+("Hasil Dekripsi: "+str(kataDekripsi)))
 
+#Extended
+def bikinListKataExt (input):
+    list = []
+    for kata in input:
+        list.append(kata)
+    return list
+
+def lengkapiListKeyExt (list,listKey):
+    sisa = len(list) - len(listKey)
+    if sisa > 0:
+        for i in range (sisa):
+            listKey.append(listKey[i]) 
+    return listKey
+
+def enkripsiExt (list,listKey):
+    kataEnkripsi = ''
+    for i in range (len(list)):
+        temp = chr((ord(list[i]) + ord(listKey[i]))%256)
+        kataEnkripsi += temp
+    return kataEnkripsi
+
+def listEnkripsiExt (kataEnkripsi):
+    listFix = []
+    for kata in kataEnkripsi:
+        listFix.append(kata)
+    return listFix
+
+def dekripsiExt (listFix,listKey):
+    kataDekripsi = ''
+    for i in range (len(listFix)):
+        temp = chr((ord(listFix[i])-ord(listKey[i]))%256)
+        kataDekripsi += temp
+    return kataDekripsi
+
+#Playfair
 def playFair(teksKey, teksMasukan, pilih):
     arrayAlphabet = [0 for i in range(26)]
     arrayBujurSangkar = [["" for i in range(5)] for j in range(5)]
@@ -310,6 +381,83 @@ def playFair(teksKey, teksMasukan, pilih):
     if pilih ==2:
         return(cetakArrayDekripsi(hasilTeksDekripsi))
 
+#Running Key
+def bikinListKataRunning (input):
+    list = []
+    for kata in input:
+        if ord(kata) >= 65 and ord(kata) <= 90:
+            list.append(kata)
+        else:
+            if ord(kata) >= 97 and ord(kata) <= 122:
+                temp = chr(ord(kata)-32)
+                list.append(temp)
+    return list
+
+def lengkapiListKeyRunning (list,listKey):
+    sisa = len(list) - len(listKey)
+    if sisa > 0:
+        for i in range (sisa):
+            listKey.append(listKey[i])
+    return listKey
+
+def enkripsiRunning (list,listKey):
+    kataEnkripsi = ''
+    for i in range (len(list)):
+        temp = chr(((ord(list[i])-65 + ord(listKey[i])-65)%26)+65)
+        kataEnkripsi += temp
+    return kataEnkripsi
+
+def listEnkripsiRunning (kataEnkripsi):
+    listFix = []
+    for kata in kataEnkripsi:
+        listFix.append(kata)
+    return listFix
+
+def dekripsiRunning (listFix,listKey):
+    kataDekripsi = ''
+    for i in range (len(listFix)):
+        temp = chr(((ord(listFix[i])-65 - ord(listKey[i])-65)%26)+65)
+        kataDekripsi += temp
+    return kataDekripsi
+
+#Auto
+def bikinListKataAuto (input):
+    list = []
+    for kata in input:
+        if ord(kata) >= 65 and ord(kata) <= 90:
+            list.append(kata)
+        else:
+            if ord(kata) >= 97 and ord(kata) <= 122:
+                temp = chr(ord(kata)-32)
+                list.append(temp)
+    return list
+
+def lengkapiListKeyAuto (list,listKey):
+    sisa = len(list) - len(listKey)
+    if sisa > 0:
+        for i in range (sisa):
+            listKey.append(list[i])
+    return listKey
+
+def enkripsiAuto (list,listKey):
+    kataEnkripsi = ''
+    for i in range (len(list)):
+        temp = chr(((ord(list[i])-65 + ord(listKey[i])-65)%26)+65)
+        kataEnkripsi += temp
+    return kataEnkripsi
+
+def listEnkripsiAuto (kataEnkripsi):
+    listFix = []
+    for kata in kataEnkripsi:
+        listFix.append(kata)
+    return listFix
+
+def dekripsiAuto (listFix,listKey):
+    kataDekripsi = ''
+    for i in range (len(listFix)):
+        temp = chr(((ord(listFix[i])-65 - ord(listKey[i])-65)%26)+65)
+        kataDekripsi += temp
+    return kataDekripsi
 
 class Login(QDialog):
     def __init__(self):
@@ -366,12 +514,66 @@ class Text(QDialog):
         kunci = self.kunci.text()
         if cipherType == 'play':
             print(playFair(kunci,teks,1))
+        if cipherType == 'vig':
+            list = bikinListKata(teks)
+            listKey = bikinListKata(kunci)
+            listKey = lengkapiListKey(list,listKey)
+            kataEnkripsi = enkripsi(list,listKey)
+            print(kataEnkripsi)
+        if cipherType == 'running':
+            inputKata = str(input("Masukan text: "))
+            inputKey = str(input("Masukan text: "))
+            list = bikinListKataRunning(inputKata)
+            listKey = bikinListKataRunning(inputKey)
+            listKey = lengkapiListKeyRunning(list,listKey)
+            kataEnkripsi = enkripsiRunning(list,listKey)
+            print(kataEnkripsi)
+        if cipherType == 'full':
+            list = bikinListKataExt(teks)
+            listKey = bikinListKataExt(kunci)
+            listKey = lengkapiListKeyExt(list,listKey)
+            kataEnkripsi = enkripsiExt(list,listKey)
+            print(kataEnkripsi)
+        if cipherType == 'auto':
+            list = bikinListKataAuto(teks)
+            listKey = bikinListKataAuto(kunci)
+            listKey = lengkapiListKeyAuto(list,listKey)
+            kataEnkripsi = enkripsiAuto(list,listKey)
+            print(kataEnkripsi)
+        if cipherType == "enigma":
+            print('Enigma')
     def gotoDecrypt(self):
         teks = self.teks.text()
         kunci = self.kunci.text()
         if cipherType == 'play':
             print(playFair(kunci,teks,2))
-
+        if cipherType == 'vig':
+            list = bikinListKata(teks)
+            listKey = bikinListKata(kunci)
+            listKey = lengkapiListKey(list,listKey)   
+            kataDekripsi = dekripsi(list,listKey)
+            print(kataDekripsi)
+        if cipherType == 'running':
+            list = bikinListKataRunning(teks)
+            listKey = bikinListKataRunning(kunci)
+            listKey = lengkapiListKeyRunning(list,kunci)
+            kataDekripsi = dekripsiRunning(list,listKey)
+            print(kataDekripsi)
+        if cipherType == 'full':
+            list = bikinListKataExt(teks)
+            listKey = bikinListKataExt(kunci)
+            listKey = lengkapiListKeyExt(list,listKey)
+            kataDekripsi = dekripsiExt(list,listKey)
+            print(kataDekripsi)
+        if cipherType == 'auto':
+            list = bikinListKataAuto(teks)
+            listKey = bikinListKataAuto(kunci)
+            listKey = lengkapiListKeyAuto(list,listKey)
+            kataDekripsi = dekripsiAuto(list,listKey)
+            print(kataDekripsi)
+        if cipherType == 'enigma':
+            print('Enigma')
+            
 app = QApplication(sys.argv)
 widget = QtWidgets.QStackedWidget()
 widget.addWidget(Login())  # Index jadi 0   

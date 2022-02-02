@@ -1,30 +1,30 @@
-def bikinListKata (input):
+def bikinListKataExt (input):
     list = []
     for kata in input:
         list.append(kata)
     return list
 
-def lengkapiListKey (list,listKey):
+def lengkapiListKeyExt (list,listKey):
     sisa = len(list) - len(listKey)
     if sisa > 0:
         for i in range (sisa):
-            listKey.append(listKey[i])
+            listKey.append(listKey[i]) 
     return listKey
 
-def enkripsi (list,listKey):
+def enkripsiExt (list,listKey):
     kataEnkripsi = ''
     for i in range (len(list)):
         temp = chr((ord(list[i]) + ord(listKey[i]))%256)
         kataEnkripsi += temp
     return kataEnkripsi
 
-def listEnkripsi (kataEnkripsi):
+def listEnkripsiExt (kataEnkripsi):
     listFix = []
     for kata in kataEnkripsi:
         listFix.append(kata)
     return listFix
 
-def dekripsi (listFix,listKey):
+def dekripsiExt (listFix,listKey):
     kataDekripsi = ''
     for i in range (len(listFix)):
         temp = chr((ord(listFix[i])-ord(listKey[i]))%256)
@@ -36,13 +36,13 @@ def dekripsi (listFix,listKey):
 inputKata = str(input("Masukan text: "))
 inputKey = str(input("Masukan text: "))
 
-list = bikinListKata(inputKata)
-listKey = bikinListKata(inputKey)
-listKey = lengkapiListKey(list,listKey)
+list = bikinListKataExt(inputKata)
+listKey = bikinListKataExt(inputKey)
+listKey = lengkapiListKeyExt(list,listKey)
 
-kataEnkripsi = enkripsi(list,listKey)
-listFix =  listEnkripsi(kataEnkripsi)
-kataDekripsi = dekripsi(listFix,listKey)
+kataEnkripsi = enkripsiExt(list,listKey)
+listFix =  listEnkripsiExt(kataEnkripsi)
+kataDekripsi = dekripsiExt(listFix,listKey)
 
 print("Hasil Enkripsi: "+str(kataEnkripsi))
 print("Hasil Dekripsi: "+str(kataDekripsi))
