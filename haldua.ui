@@ -29,7 +29,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">color: #2B3242;
-font: 30pt &quot;Arial&quot;</string>
+font: 25pt &quot;Arial&quot;</string>
    </property>
    <property name="text">
     <string>MASUKKAN KUNCI &amp;</string>
@@ -42,7 +42,7 @@ font: 30pt &quot;Arial&quot;</string>
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>270</y>
+     <y>240</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -68,7 +68,7 @@ font: 30pt &quot;Arial&quot;</string>
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>210</y>
+     <y>180</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -94,7 +94,7 @@ padding-left:15px;</string>
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>330</y>
+     <y>300</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -120,7 +120,7 @@ padding-left:15px;</string>
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>150</y>
+     <y>120</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -148,12 +148,12 @@ padding-left:15px;</string>
      <x>90</x>
      <y>90</y>
      <width>281</width>
-     <height>51</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">color: #2B3242;
-font: 30pt &quot;Arial&quot;</string>
+font: 25pt &quot;Arial&quot;</string>
    </property>
    <property name="text">
     <string>TEKS ANDA</string>
@@ -181,6 +181,26 @@ font: 30pt &quot;Arial&quot;</string>
    </property>
    <property name="text">
     <string>Home</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="hasil">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>360</y>
+     <width>371</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #2B3242;
+font: 15pt &quot;Arial&quot;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

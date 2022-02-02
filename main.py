@@ -338,7 +338,6 @@ def playFair(teksKey, teksMasukan, pilih):
     if int(len(teksDekripsi)%2==1):
         print("Panjang teks harus genap!")
     else:
-        
         teksDekripsi = teksDekripsi.replace(" ","")
         idxDekripsi = 0
         while idxDekripsi<len(teksDekripsi):
@@ -509,7 +508,6 @@ class Text(QDialog):
     def __init__(self):
         super(Text, self).__init__()
         loadUi('haldua.ui', self)
-        print(cipherType)
         self.encryptButton.clicked.connect(self.gotoEncrypt)
         self.decryptButton.clicked.connect(self.gotoDecrypt)
         self.homeButton.clicked.connect(self.gotoHome)
@@ -517,21 +515,15 @@ class Text(QDialog):
         teks = self.teks.text()
         kunci = self.kunci.text()
         if cipherType == 'play':
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Hasil Dekripsi Anda: ")
-            msg.setInformativeText(playFair(kunci,teks,1))
-            msg.exec_()
+            keluaran = 'Hasil Enkripsi Anda: ' + playFair(kunci,teks,1)
+            self.hasil.setText(keluaran)
         if cipherType == 'vig':
             list = bikinListKata(teks)
             listKey = bikinListKata(kunci)
             listKey = lengkapiListKey(list,listKey)
             kataEnkripsi = enkripsi(list,listKey)
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Hasil Dekripsi Anda: ")
-            msg.setInformativeText(kataEnkripsi)
-            msg.exec_()
+            keluaran = 'Hasil Enkripsi Anda: ' + kataEnkripsi
+            self.hasil.setText(keluaran)
         if cipherType == 'running':
             inputKata = str(input("Masukan text: "))
             inputKey = str(input("Masukan text: "))
@@ -539,94 +531,66 @@ class Text(QDialog):
             listKey = bikinListKataRunning(inputKey)
             listKey = lengkapiListKeyRunning(list,listKey)
             kataEnkripsi = enkripsiRunning(list,listKey)
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Hasil Dekripsi Anda: ")
-            msg.setInformativeText(kataEnkripsi)
-            msg.exec_()
+            keluaran = 'Hasil Enkripsi Anda: ' + kataEnkripsi
+            self.hasil.setText(keluaran)
         if cipherType == 'full':
             list = bikinListKataExt(teks)
             listKey = bikinListKataExt(kunci)
             listKey = lengkapiListKeyExt(list,listKey)
             kataEnkripsi = enkripsiExt(list,listKey)
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Hasil Dekripsi Anda: ")
-            msg.setInformativeText(kataEnkripsi)
-            msg.exec_()
+            keluaran = 'Hasil Enkripsi Anda: ' + kataEnkripsi
+            self.hasil.setText(keluaran)
         if cipherType == 'auto':
             list = bikinListKataAuto(teks)
             listKey = bikinListKataAuto(kunci)
             listKey = lengkapiListKeyAuto(list,listKey)
             kataEnkripsi = enkripsiAuto(list,listKey)
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Hasil Dekripsi Anda: ")
-            msg.setInformativeText(kataEnkripsi)
-            msg.exec_()
+            keluaran = 'Hasil Enkripsi Anda: ' + kataEnkripsi
+            self.hasil.setText(keluaran)
         if cipherType == "enigma":
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Hasil Dekripsi Anda: ")
-            msg.setInformativeText('kataEnkripsi')
-            msg.exec_()
+            keluaran = 'Hasil Enkripsi Anda: ' + kataEnkripsi
+            self.hasil.setText(keluaran)
     def gotoDecrypt(self):
         teks = self.teks.text()
         kunci = self.kunci.text()
         if cipherType == 'play':
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Hasil Dekripsi Anda: ")
-            msg.setInformativeText(playFair(kunci,teks,2))
-            msg.exec_()
+            keluaran = playFair(kunci,teks,2)
+            self.hasil.setText(keluaran)
         if cipherType == 'vig':
             list = bikinListKata(teks)
             listKey = bikinListKata(kunci)
             listKey = lengkapiListKey(list,listKey)   
             kataDekripsi = dekripsi(list,listKey)
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Hasil Dekripsi Anda: ")
-            msg.setInformativeText(kataDekripsi)
-            msg.exec_()
+            keluaran = 'Hasil Dekripsi Anda: ' + kataDekripsi
+            self.hasil.setText(keluaran)
         if cipherType == 'running':
             list = bikinListKataRunning(teks)
             listKey = bikinListKataRunning(kunci)
             listKey = lengkapiListKeyRunning(list,kunci)
             kataDekripsi = dekripsiRunning(list,listKey)
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Hasil Dekripsi Anda: ")
-            msg.setInformativeText(kataDekripsi)
-            msg.exec_()
+            keluaran = 'Hasil Dekripsi Anda: ' + kataDekripsi
+            self.hasil.setText(keluaran)
         if cipherType == 'full':
             list = bikinListKataExt(teks)
             listKey = bikinListKataExt(kunci)
             listKey = lengkapiListKeyExt(list,listKey)
             kataDekripsi = dekripsiExt(list,listKey)
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Hasil Dekripsi Anda: ")
-            msg.setInformativeText(kataDekripsi)
-            msg.exec_()
+            keluaran = 'Hasil Dekripsi Anda: ' + kataDekripsi
+            self.hasil.setText(keluaran)
         if cipherType == 'auto':
             list = bikinListKataAuto(teks)
             listKey = bikinListKataAuto(kunci)
             listKey = lengkapiListKeyAuto(list,listKey)
             kataDekripsi = dekripsiAuto(list,listKey)
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Hasil Dekripsi Anda: ")
-            msg.setInformativeText(kataDekripsi)
-            msg.exec_()
+            keluaran = 'Hasil Dekripsi Anda: ' + kataDekripsi
+            self.hasil.setText(keluaran)
         if cipherType == 'enigma':
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Hasil Dekripsi Anda: ")
-            msg.setInformativeText('Enigma')
-            msg.exec_()
+            self.hasil.setText('enigma')
     def gotoHome(self):
         widget.setCurrentIndex(0)
+    def gotoHasil(self):
+        widget.setCurrentIndex(3)
+
 app = QApplication(sys.argv)
 widget = QtWidgets.QStackedWidget()
 widget.addWidget(Login())  # Index jadi 0   
