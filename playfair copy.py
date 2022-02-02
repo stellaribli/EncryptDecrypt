@@ -1,17 +1,14 @@
-import sys
-from PyQt5.QtWidgets import QDialog, QApplication
-from PyQt5 import QtWidgets
-from PyQt5.uic import loadUi
-from numpy import array
 
-cipherType = ""
+
+teksKey = input("Masukkan Key: ")
+teksMasukan = input("Masukkan Pesan: ")
+
 def playFair(teksKey, teksMasukan, pilih):
     arrayAlphabet = [0 for i in range(26)]
     arrayBujurSangkar = [["" for i in range(5)] for j in range(5)]
     teksKey = teksKey.replace(" ","")
     teksKey = teksKey.replace("J","")
-    teksKey = teksKey.upper()
-    teksMasukan = teksMasukan.upper()
+    keyBaru = ""
     bujurX = 0
     bujurY = 0
 
@@ -156,81 +153,7 @@ def playFair(teksKey, teksMasukan, pilih):
             dua = arrayBujurSangkar[lokasiAlphabetDua[0]][lokasiAlphabetSatu[1]]
             hasilTeksDekripsi.append([satu,dua])
     if pilih == 1:
-        return(cetakArrayEnkripsi(arrayTeksEnkripsi))
+        print(cetakArrayEnkripsi(arrayTeksEnkripsi))
     if pilih ==2:
-        return(cetakArrayDekripsi(hasilTeksDekripsi))
-
-
-class Login(QDialog):
-    def __init__(self):
-        super(Login, self).__init__()
-        loadUi('landing.ui', self)
-        self.vigButton.clicked.connect(self.gotoVig)
-        self.extButton.clicked.connect(self.gotoExt)
-        self.playButton.clicked.connect(self.gotoPlay)
-        self.enigmaButton.clicked.connect(self.gotoEnigma)
-    def gotoVig(self):
-        global cipherType 
-        cipherType = "vig"
-        widget.setCurrentIndex(2)
-    def gotoExt(self):
-        widget.setCurrentIndex(1)
-    def gotoPlay(self):
-        global cipherType 
-        cipherType = "play"
-        widget.setCurrentIndex(2)
-    def gotoEnigma(self):
-        global cipherType 
-        cipherType = "enigma"
-        widget.setCurrentIndex(2)
-
-class Extended(QDialog):
-    def __init__(self):
-        super(Extended, self).__init__()
-        loadUi('extended.ui', self)
-        self.fullButton.clicked.connect(self.gotoFull)
-        self.autoButton.clicked.connect(self.gotoAuto)
-        self.runningButton.clicked.connect(self.gotoRunning)
-    def gotoFull(self):
-        global cipherType 
-        cipherType = "full"
-        widget.setCurrentIndex(2)
-    def gotoAuto(self):
-        global cipherType 
-        cipherType = "auto"
-        widget.setCurrentIndex(2)
-    def gotoRunning(self):
-        global cipherType 
-        cipherType = "running"
-        widget.setCurrentIndex(2)
-
-class Text(QDialog):
-    def __init__(self):
-        super(Text, self).__init__()
-        loadUi('haldua.ui', self)
-        print(cipherType)
-        self.encryptButton.clicked.connect(self.gotoEncrypt)
-        self.decryptButton.clicked.connect(self.gotoDecrypt)
-    def gotoEncrypt(self): 
-        teks = self.teks.text()
-        kunci = self.kunci.text()
-        if cipherType == 'play':
-            print(playFair(kunci,teks,1))
-    def gotoDecrypt(self):
-        teks = self.teks.text()
-        kunci = self.kunci.text()
-        if cipherType == 'play':
-            print(playFair(kunci,teks,2))
-
-app = QApplication(sys.argv)
-widget = QtWidgets.QStackedWidget()
-widget.addWidget(Login())  # Index jadi 0   
-widget.addWidget(Extended())  # Index jadi 1
-widget.addWidget(Text())  # Index jadi 2
-widget.setCurrentIndex(0)
-widget.setFixedWidth(450)
-widget.setFixedHeight(450)
-widget.show()
-app.exec_()
-
+        print(cetakArrayDekripsi(hasilTeksDekripsi))
 

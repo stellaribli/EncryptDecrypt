@@ -38,7 +38,7 @@ font: 30pt &quot;Arial&quot;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="loginbutton">
+  <widget class="QPushButton" name="fullButton">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -64,7 +64,7 @@ font: 30pt &quot;Arial&quot;</string>
     <string>Full</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="loginbutton_2">
+  <widget class="QPushButton" name="autoButton">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -90,7 +90,7 @@ font: 30pt &quot;Arial&quot;</string>
     <string>Auto-Key</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="loginbutton_3">
+  <widget class="QPushButton" name="runningButton">
    <property name="geometry">
     <rect>
      <x>130</x>

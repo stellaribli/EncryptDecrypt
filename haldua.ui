@@ -38,7 +38,7 @@ font: 30pt &quot;Arial&quot;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="loginbutton_4">
+  <widget class="QPushButton" name="encryptButton">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -64,7 +64,7 @@ font: 30pt &quot;Arial&quot;</string>
     <string>Enkripsi</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="passlama">
+  <widget class="QLineEdit" name="teks">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -90,7 +90,7 @@ padding-left:15px;</string>
     <string>Teks</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="loginbutton_5">
+  <widget class="QPushButton" name="decryptButton">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -116,7 +116,7 @@ padding-left:15px;</string>
     <string>Dekripsi</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="passlama_2">
+  <widget class="QLineEdit" name="kunci">
    <property name="geometry">
     <rect>
      <x>90</x>
