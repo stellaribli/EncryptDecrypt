@@ -1,6 +1,6 @@
 import sys
-from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QMessageBox, QFileDialog
-from PyQt5 import QtCore, QtWidgets
+from PyQt5.QtWidgets import QDialog, QApplication
+from PyQt5 import QtWidgets
 from PyQt5.uic import loadUi
 
 class Login(QDialog):
@@ -8,9 +8,15 @@ class Login(QDialog):
         super(Login, self).__init__()
         loadUi('halsatu.ui', self)
 
+class Extended(QDialog):
+    def __init__(self):
+        super(Extended, self).__init__()
+        loadUi('extended.ui', self)
+
 app = QApplication(sys.argv)
 widget = QtWidgets.QStackedWidget()
 widget.addWidget(Login())  # Index jadi 0   
+widget.addWidget(Extended())  # Index jadi 1
 widget.setCurrentIndex(0)
 widget.setFixedWidth(500)
 widget.setFixedHeight(500)
