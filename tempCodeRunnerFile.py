@@ -1,1 +1,1 @@
-dekripsi
+teks
