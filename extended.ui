@@ -22,7 +22,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>100</y>
+     <y>80</y>
      <width>451</width>
      <height>61</height>
     </rect>
@@ -61,7 +61,7 @@ font: 30pt &quot;Arial&quot;</string>
  }</string>
    </property>
    <property name="text">
-    <string>Full</string>
+    <string>Standard</string>
    </property>
   </widget>
   <widget class="QPushButton" name="autoButton">
@@ -114,26 +114,6 @@ font: 30pt &quot;Arial&quot;</string>
    </property>
    <property name="text">
     <string>Running-Key</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>451</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: #2B3242;
-font: 30pt &quot;Arial&quot;</string>
-   </property>
-   <property name="text">
-    <string>EXTENDED</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="homeButton">

@@ -467,11 +467,9 @@ class Login(QDialog):
         self.playButton.clicked.connect(self.gotoPlay)
         self.enigmaButton.clicked.connect(self.gotoEnigma)
     def gotoVig(self):
-        global cipherType 
-        cipherType = "vig"
         widget.setCurrentIndex(2)
     def gotoExt(self):
-        widget.setCurrentIndex(1)
+        widget.setCurrentIndex(3)
     def gotoPlay(self):
         global cipherType 
         cipherType = "play"
@@ -490,8 +488,8 @@ class Extended(QDialog):
         self.runningButton.clicked.connect(self.gotoRunning)
         self.homeButton.clicked.connect(self.gotoHome)
     def gotoFull(self):
-        global cipherType 
-        cipherType = "full"
+        global cipherType  
+        cipherType = "vig"
         widget.setCurrentIndex(2)
     def gotoAuto(self):
         global cipherType 
