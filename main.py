@@ -467,9 +467,9 @@ class Login(QDialog):
         self.playButton.clicked.connect(self.gotoPlay)
         self.enigmaButton.clicked.connect(self.gotoEnigma)
     def gotoVig(self):
-        widget.setCurrentIndex(2)
+        widget.setCurrentIndex(1)
     def gotoExt(self):
-        widget.setCurrentIndex(3)
+        widget.setCurrentIndex(2)
     def gotoPlay(self):
         global cipherType 
         cipherType = "play"
