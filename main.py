@@ -1,3 +1,4 @@
+import base64
 import os
 import os.path
 import sys
@@ -301,6 +302,7 @@ def autoKeyVigenere(inputKey,inputKata):
     return(print("Hasil Enkripsi: "+str(kataEnkripsi))+('/n')+("Hasil Dekripsi: "+str(kataDekripsi)))
 
 #Extended
+
 def bikinListKataExt (input):
     list = []
     for kata in input:
@@ -332,7 +334,7 @@ def dekripsiExt (listFix,listKey):
     for i in range (len(listFix)):
         temp = chr((ord(listFix[i])-ord(listKey[i]))%256)
         kataDekripsi += temp
-    return kataDekripsi
+    return kataDekripsi    
 
 #Playfair
 def playFair(teksKey, teksMasukan, pilih):
@@ -646,19 +648,10 @@ class Text(QDialog):
             keluaran = 'Hasil Enkripsi Anda: ' + kataEnkripsi
             self.hasil.setText(keluaran)
         if cipherType == 'running':
-            inputKata = str(input("Masukan text: "))
-            inputKey = str(input("Masukan text: "))
-            list = bikinListKataRunning(inputKata)
-            listKey = bikinListKataRunning(inputKey)
+            list = bikinListKataRunning(teks)
+            listKey = bikinListKataRunning(kunci)
             listKey = lengkapiListKeyRunning(list,listKey)
             kataEnkripsi = enkripsiRunning(list,listKey)
-            keluaran = 'Hasil Enkripsi Anda: ' + kataEnkripsi
-            self.hasil.setText(keluaran)
-        if cipherType == 'full':
-            list = bikinListKataExt(teks)
-            listKey = bikinListKataExt(kunci)
-            listKey = lengkapiListKeyExt(list,listKey)
-            kataEnkripsi = enkripsiExt(list,listKey)
             keluaran = 'Hasil Enkripsi Anda: ' + kataEnkripsi
             self.hasil.setText(keluaran)
         if cipherType == 'auto':
@@ -668,6 +661,18 @@ class Text(QDialog):
             kataEnkripsi = enkripsiAuto(list,listKey)
             keluaran = 'Hasil Enkripsi Anda: ' + kataEnkripsi
             self.hasil.setText(keluaran)
+        if cipherType == 'extended':
+            with open(self.uploadedFile,'rb') as d:
+                bytesData = d.read()
+                b64content = base64.b64encode(bytesData)
+                teks = b64content.decode('utf-8')
+            list = bikinListKataExt(teks)
+            listKey = bikinListKataExt(kunci)
+            kataEnkripsi = enkripsiExt(list,listKey)
+            byteEnkripsi = kataEnkripsi.encode('raw_unicode_escape')
+            keluaran = 'Enkripsi Berhasil'
+            with open(self.uploadedFile, 'wb') as f:
+                f.write(byteEnkripsi)
         if cipherType == "enigma":
             if (len(kunci)!=3):
                 msg = QMessageBox()
@@ -708,13 +713,6 @@ class Text(QDialog):
             kataDekripsi = dekripsiRunning(list,listKey)
             keluaran = 'Hasil Dekripsi Anda: ' + kataDekripsi
             self.hasil.setText(keluaran)
-        if cipherType == 'full':
-            list = bikinListKataExt(teks)
-            listKey = bikinListKataExt(kunci)
-            listKey = lengkapiListKeyExt(list,listKey)
-            kataDekripsi = dekripsiExt(list,listKey)
-            keluaran = 'Hasil Dekripsi Anda: ' + kataDekripsi
-            self.hasil.setText(keluaran)
         if cipherType == 'auto':
             list = bikinListKataAuto(teks)
             listKey = bikinListKataAuto(kunci)
@@ -722,6 +720,18 @@ class Text(QDialog):
             kataDekripsi = dekripsiAuto(list,listKey)
             keluaran = 'Hasil Dekripsi Anda: ' + kataDekripsi
             self.hasil.setText(keluaran)
+        if cipherType == 'extended':
+            with open(self.uploadedFile,'rb') as d:
+                bytesData = d.read()
+                b64content = base64.b64encode(bytesData)
+                teks = b64content.decode('utf-8')
+            list = bikinListKataExt(teks)
+            listKey = bikinListKataExt(kunci)
+            kataEnkripsi = dekripsiExt(list,listKey)
+            byteEnkripsi = kataEnkripsi.encode('raw_unicode_escape')
+            keluaran = 'Dekripsi Berhasil'
+            with open(self.uploadedFile, 'wb') as f:
+                f.write(byteEnkripsi)
         if cipherType == 'enigma':
             if (len(kunci)!=3):
                 msg = QMessageBox()
