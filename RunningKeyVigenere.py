@@ -47,7 +47,7 @@ listKey = lengkapiListKey(list,listKey)
 
 kataEnkripsi = enkripsi(list,listKey)
 listFix =  listEnkripsi(kataEnkripsi)
-kataDekripsi = dekripsi(listFix,listKey)
+kataDekripsi = dekripsi(list,listKey)
 
 print("Hasil Enkripsi: "+str(kataEnkripsi))
 print("Hasil Dekripsi: "+str(kataDekripsi))
