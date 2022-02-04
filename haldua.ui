@@ -42,8 +42,8 @@ font: 25pt &quot;Arial&quot;</string>
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>240</y>
-     <width>281</width>
+     <y>300</y>
+     <width>131</width>
      <height>51</height>
     </rect>
    </property>
@@ -93,9 +93,9 @@ padding-left:15px;</string>
   <widget class="QPushButton" name="decryptButton">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>240</x>
      <y>300</y>
-     <width>281</width>
+     <width>131</width>
      <height>51</height>
     </rect>
    </property>
@@ -201,6 +201,32 @@ font: 15pt &quot;Arial&quot;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="uploadButton">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>240</y>
+     <width>281</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+	background-color: #31473D; color:#FFFFFF;
+	font: 15pt &quot;Arial&quot;;
+	border-radius: 13.25760269165039px;
+	border: 1.4px solid #2B3242;
+}
+
+ QPushButton:hover {
+	background-color: #6A8378; color:#fff;
+	border: 1.4px solid #2B3242;
+ }</string>
+   </property>
+   <property name="text">
+    <string>Upload File</string>
    </property>
   </widget>
  </widget>

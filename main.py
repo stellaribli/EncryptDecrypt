@@ -622,7 +622,7 @@ class Text(QDialog):
         self.uploadedFile = None  
     def upload(self):
         fileName, _ = QFileDialog.getOpenFileName(
-            self, "Upload CV File", "", "PDF Files (*.pdf)")
+            self, "Upload CV File", "", "txt Files (*.txt)")
         if fileName:
             self.uploadedFile = fileName
             self.fileName.setText(os.path.basename(fileName))
