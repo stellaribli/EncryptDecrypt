@@ -94,7 +94,6 @@ def enigma(key, teks, pilihan):
         S = 0
         idxTeks = ord(teks[i]) - 65
         for j in range(26):
-            # print(newFast[1][idxTeks])
             if newFast[0][j] == newFast[1][idxTeks]:
                 FM = j
         for j in range(26):
@@ -620,6 +619,8 @@ class Text(QDialog):
     def gotoEncrypt(self): 
         teks = self.teks.text()
         kunci = self.kunci.text()
+        teks = teks.replace(' ','')
+        kunci = kunci.replace(' ','')
         if cipherType == 'play':
             keluaran = 'Hasil Enkripsi Anda: ' + playFair(kunci,teks,1)
             self.hasil.setText(keluaran)
@@ -654,15 +655,31 @@ class Text(QDialog):
             keluaran = 'Hasil Enkripsi Anda: ' + kataEnkripsi
             self.hasil.setText(keluaran)
         if cipherType == "enigma":
-            kataEnkripsi = enigma(kunci, teks, 1)
-            keluaran = 'Hasil Enkripsi Anda: ' + kataEnkripsi
-            self.hasil.setText(keluaran)    
+            if (len(kunci)!=3):
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Critical)
+                msg.setText("Error")
+                msg.setInformativeText('Masukkan tiga huruf untuk kunci!')
+                msg.exec_()                
+            else:
+                kataEnkripsi = enigma(kunci, teks, 1)
+                keluaran = 'Hasil Enkripsi Anda: ' + kataEnkripsi
+                self.hasil.setText(keluaran)    
     def gotoDecrypt(self):
         teks = self.teks.text()
         kunci = self.kunci.text()
+        teks = teks.replace(' ','')
+        kunci = kunci.replace(' ','')
         if cipherType == 'play':
-            keluaran = playFair(kunci,teks,2)
-            self.hasil.setText(keluaran)
+            if int(len(teks)%2==1):
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Critical)
+                msg.setText("Error")
+                msg.setInformativeText('Panjang Teks Harus Genap!')
+                msg.exec_()
+            else:
+                keluaran = playFair(kunci,teks,2)
+                self.hasil.setText(keluaran)
         if cipherType == 'vig':
             list = bikinListKata(teks)
             listKey = bikinListKata(kunci)
@@ -692,9 +709,16 @@ class Text(QDialog):
             keluaran = 'Hasil Dekripsi Anda: ' + kataDekripsi
             self.hasil.setText(keluaran)
         if cipherType == 'enigma':
-            kataDekripsi = enigma(kunci, teks, 2)
-            keluaran = 'Hasil Dekripsi Anda: ' + kataDekripsi
-            self.hasil.setText(keluaran)            
+            if (len(kunci)!=3):
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Critical)
+                msg.setText("Error")
+                msg.setInformativeText('Masukkan tiga huruf untuk kunci!')
+                msg.exec_() 
+            else: 
+                kataDekripsi = enigma(kunci, teks, 2)
+                keluaran = 'Hasil Dekripsi Anda: ' + kataDekripsi
+                self.hasil.setText(keluaran)            
     def gotoHome(self):
         widget.setCurrentIndex(0)
     def gotoHasil(self):
