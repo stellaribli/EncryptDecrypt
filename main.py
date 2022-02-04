@@ -578,6 +578,8 @@ class Login(QDialog):
     def gotoVig(self):
         widget.setCurrentIndex(1)
     def gotoExt(self):
+        global cipherType 
+        cipherType = "extended"        
         widget.setCurrentIndex(2)
     def gotoPlay(self):
         global cipherType 
