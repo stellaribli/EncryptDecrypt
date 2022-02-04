@@ -1,5 +1,7 @@
+import os
+import os.path
 import sys
-from PyQt5.QtWidgets import QDialog, QApplication, QMessageBox
+from PyQt5.QtWidgets import QDialog, QApplication, QMessageBox, QFileDialog
 from PyQt5 import QtWidgets
 from PyQt5.uic import loadUi
 from numpy import array
@@ -616,6 +618,16 @@ class Text(QDialog):
         self.encryptButton.clicked.connect(self.gotoEncrypt)
         self.decryptButton.clicked.connect(self.gotoDecrypt)
         self.homeButton.clicked.connect(self.gotoHome)
+        self.uploadButton.clicked.connect(self.upload)
+        self.uploadedFile = None  
+    def upload(self):
+        fileName, _ = QFileDialog.getOpenFileName(
+            self, "Upload CV File", "", "PDF Files (*.pdf)")
+        if fileName:
+            self.uploadedFile = fileName
+            self.fileName.setText(os.path.basename(fileName))
+        else:
+            print("No file selected")  
     def gotoEncrypt(self): 
         teks = self.teks.text()
         kunci = self.kunci.text()
